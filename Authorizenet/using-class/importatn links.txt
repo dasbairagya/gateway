@@ -1,0 +1,14 @@
+http://upshots.org/php/transacting-with-authorize-net-via-php-and-curl
+
+https://www.stsbd.com/integrate-authorize-net-aim-using-php/
+
+http://www.johnconde.net/blog/tutorial-integrating-the-authorizenet-aim-api-with-php/
+
+
+
+http://phpfour.com/php-payment-gateway-library-for-paypal-authorizenet-and-2checkout/
+
+http://demo.devinlewis.com/authorize-net-terminal/
+
+https://www.youtube.com/watch?v=K6cINrm9LpE
+

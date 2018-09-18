@@ -1,0 +1,249 @@
+<html>
+    <head>
+        <title>Authorize.net tutorial by AlphansoTech.com</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+       
+    </head>
+    <body>
+
+        <div class="container">
+            <div class="row text-center">
+                <h2>Authorize.net Payment Gateway Example</h2>
+                
+            </div>
+        
+        </div>
+
+    <div class="row">
+        <!-- You can make it whatever width you want. I'm making it full width
+             on <= small devices and 4/12 page width on >= medium devices -->
+        <div class="col-xs-12 col-md-6 col-md-offset-3">
+        
+        
+            <!-- CREDIT CARD FORM STARTS HERE -->
+            <div class="panel panel-default credit-card-box">
+                <div class="panel-heading display-table" >
+                    <div class="panel-title">
+                        <div class="row">
+                            <div class="col-md-8"><h3>Payment Details</h3></div>   
+                            <div class="col-md-4"><img class="img-responsive" src="http://i76.imgup.net/accepted_c22e0.png"></div>   
+                        </div>
+                        
+                        </div>
+                                        
+                </div>
+                <div class="panel-body">
+                        <form id="contact-form" method="post" action="pay.php" role="form">
+                        <div class="row">
+                            <input id="x_test_request" name="x_test_request" type="hidden" value="FALSE" />
+                        <input id="x_show_form" name="x_show_form" type="hidden" value="PAYMENT_FORM" />
+                        <input id="x_relay_url" name="x_relay_url" type="hidden" value="http://signmykidup.com/payments/payment_complete" />
+                        <input id="x_type" name="x_type" type="hidden" value="AUTH_CAPTURE" />
+                        <input id="x_version" name="x_version" type="hidden" value="3.1" />
+                        <input id="x_delim_data" name="x_delim_data" type="hidden" value="FALSE" />
+                        <input id="x_relay_response" name="x_relay_response" type="hidden" value="TRUE" />
+                        <input id="x_login" name="x_login" type="hidden" value="4x696GaEj" />
+                        <input id="x_fp_hash" name="x_fp_hash" type="hidden" value="<?php echo $fingerprint;?>" />
+                        <input id="x_fp_sequence" name="x_fp_sequence" type="hidden" value="<?php echo $fp_sequence;?>" />
+                        <input id="x_fp_timestamp" name="x_fp_timestamp" type="hidden" value="<?php echo $fp_timestamp;?>" />
+                        <input id="x_amount" name="x_amount" type="hidden" value="<?php echo $amount;?>" />
+                        <INPUT TYPE=HIDDEN NAME="x_email" VALUE="s@s.com">
+                        <INPUT TYPE=HIDDEN NAME="x_first_name" VALUE="Test">
+                        <INPUT TYPE=HIDDEN NAME="x_last_name" VALUE="test">
+                        <INPUT TYPE=HIDDEN NAME="x_address" VALUE="asasasa">
+                        <INPUT TYPE=HIDDEN NAME="x_city" VALUE="adas">
+                        <INPUT TYPE=HIDDEN NAME="x_state" VALUE="Alabama">
+                        <INPUT TYPE=HIDDEN NAME="x_zip" VALUE="343434">
+                        <INPUT TYPE=HIDDEN NAME="x_country" VALUE="USA">
+                        <INPUT TYPE=HIDDEN NAME="x_phone" VALUE="344-456-4322">
+                        <INPUT TYPE=HIDDEN NAME="x_program_name" VALUE="Seaside Nursery School">
+                        <INPUT TYPE=HIDDEN NAME="x_user" VALUE="62">
+                        <INPUT TYPE=HIDDEN NAME="x_description" VALUE="Seaside Nursery School registration">
+                        <input TYPE=HIDDEN NAME="x_kid_program_id[]" value="198">
+                        <INPUT TYPE=HIDDEN NAME="x_relay_url" VALUE="http://signmykidup.com/payments/payment_complete">
+                        <INPUT TYPE=HIDDEN NAME="x_relay_response" VALUE="TRUE">
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <label for="cardNumber">CARD NUMBER</label>
+                                    <div class="input-group">
+                                        <input 
+                                            type="tel"
+                                            class="form-control"
+                                            name="cardNumber"
+                                            placeholder="Valid Card Number"
+                                            autocomplete="cc-number"
+                                            required autofocus 
+                                        />
+                                        <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
+                                    </div>
+                                </div>                            
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-7 col-md-7">
+                                <div class="form-group">
+                                    <label for="cardExpiry"><span class="hidden-xs">EXPIRATION</span><span class="visible-xs-inline">EXP</span> DATE</label>
+                                    <input 
+                                        type="tel" 
+                                        class="form-control" 
+                                        name="cardExpiry"
+                                        placeholder="MM / YY"
+                                        autocomplete="cc-exp"
+                                        required 
+                                    />
+                                </div>
+                            </div>
+                            <div class="col-xs-5 col-md-5 pull-right">
+                                <div class="form-group">
+                                    <label for="cardCVC">CV CODE</label>
+                                    <input 
+                                        type="tel" 
+                                        class="form-control"
+                                        name="cardCVC"
+                                        placeholder="CVC"
+                                        autocomplete="cc-csc"
+                                        required
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <label for="couponCode">COUPON CODE</label>
+                                    <input type="text" class="form-control" name="couponCode" />
+                                </div>
+                            </div>                        
+                        </div>
+                       
+                        <div class="row">
+                            <div class="panel panel-default credit-card-box">
+                            <div class="panel-heading display-table" >
+                            <div class="panel-title">
+                                <div class="row">
+
+                                    <div class="col-md-8"> <h3>Billing Details</h3></div>   
+                                    <div class="col-md-4"></div>   
+                                </div>
+                                
+                            </div>
+                                            
+                        </div>
+                        </div>
+                            
+                        
+                               <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                
+                        <div class="messages"></div>
+                        <div class="controls">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="form_firstname">Firstname</label>
+                                        <input id="form_firstname" type="text" name="fname" class="form-control" placeholder="Please enter your firstname *" required="required" data-error="Firstname is required.">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="form_lastname">Lastname</label>
+                                        <input id="form_lastname" type="text" name="lname" class="form-control" placeholder="Please enter your lastname *" required="required" data-error="Lastname is required.">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="form_country">Country</label>
+                                        <input id="form_country" type="text" name="country" class="form-control" placeholder="Please enter your country *" required="required" >
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="form_state">State</label>
+                                        <input id="form_state" type="text" name="state" class="form-control" placeholder="Please enter your state *">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="form_city">City</label>
+                                        <input id="form_city" type="text" name="city" class="form-control" placeholder="Please enter your city *" required="required">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="form_zip">Zip</label>
+                                        <input id="form_zip" type="text" name="zip" class="form-control" placeholder="Please enter your zip *">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="form_phone">Phone</label>
+                                        <input id="form_phone" type="tel" name="phone" class="form-control" placeholder="Please enter your phone *" required="required" >
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="form_address">Address</label>
+                                        <input id="form_address" type="text" name="address" class="form-control" placeholder="Please enter your address *">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                        </div>
+                        <!--Hope you kept the order total somewhere in your database and/or in session to validate amount while final checkout.-->
+                        <input type="hidden" name="amount" value="20" />
+                    
+                </div>
+            </div>
+
+
+                        </div>
+
+                         <div class="row">
+                            <div class="col-xs-12">
+                                <input type="submit" name="buy" value="Pay Now" class="subscribe btn btn-success btn-lg btn-block">
+                                
+                            </div>
+                        </div>
+                        <div class="row" style="display:none;">
+                            <div class="col-xs-12">
+                                <p class="payment-errors"></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>            
+            <!-- CREDIT CARD FORM ENDS HERE -->
+            </form>
+            
+        </div>            
+        
+      
+        
+    </div>
+
+
+
+
+        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    </body>
+</html>
